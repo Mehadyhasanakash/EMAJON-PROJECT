@@ -3,15 +3,18 @@ import Product from '../Product/Product';
 import './Shoes.css';
 
 const Shoes = () => {
-    const hendalerToCard =(product)=>{
-        console.log(product)
-    }
+    
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([])
     useEffect(()=>{
         fetch('products.json')
         .then(res=>res.json())
         .then(data => setProducts(data))
     },[])
+    const hendalerToCard =(product)=>{
+        const newCard =[...cart, product]
+        setCart (newCard);
+    }
     return (
         <div className='shope-container'>
             <div className="shoes-container">
@@ -25,7 +28,8 @@ const Shoes = () => {
                  }
             </div>
             <div className="shoes-data-container">
-            <h2>Shoes data</h2>
+            <h2>Oder Summary</h2>
+            <h4>Select item: {cart.length}</h4>
             </div>
         </div>
     );
