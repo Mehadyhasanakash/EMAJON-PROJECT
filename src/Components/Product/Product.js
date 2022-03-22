@@ -13,7 +13,7 @@ const Product = (props) => {
             <p>rating: {ratings} stars</p>
             </div>
 
-            <button className='btn-card'>
+            <button onClick={()=>props.hendalerToCard(props.Product)} className='btn-card'>
                 Add to Card</button>
         </div>
     );

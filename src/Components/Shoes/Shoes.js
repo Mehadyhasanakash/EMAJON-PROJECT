@@ -3,6 +3,9 @@ import Product from '../Product/Product';
 import './Shoes.css';
 
 const Shoes = () => {
+    const hendalerToCard =(product)=>{
+        console.log(product)
+    }
     const [products, setProducts] = useState([]);
     useEffect(()=>{
         fetch('products.json')
@@ -16,6 +19,7 @@ const Shoes = () => {
                      products.map(product => <Product
                         key ={product.id}
                          Product={product}
+                         hendalerToCard={hendalerToCard}
                      
                      ></Product> )
                  }
