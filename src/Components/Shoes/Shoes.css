@@ -3,6 +3,7 @@
     grid-template-columns: 4fr 1fr;
 }
 .shoes-container{
-    width: 300px;
-    height: 510px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
 }
