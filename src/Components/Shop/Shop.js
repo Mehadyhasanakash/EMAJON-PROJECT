@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import Card from '../Card/Card';
 import Product from '../Product/Product';
-import './Shoes.css';
+import './Shop.css';
 
-const Shoes = () => {
+const Shop = () => {
     
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([])
+    const [card, setCard] = useState([])
     useEffect(()=>{
         fetch('products.json')
         .then(res=>res.json())
         .then(data => setProducts(data))
     },[])
     const hendalerToCard =(product)=>{
-        const newCard =[...cart, product]
-        setCart (newCard);
+        const newCard =[...card, product]
+        setCard (newCard);
     }
     return (
         <div className='shope-container'>
@@ -27,12 +28,11 @@ const Shoes = () => {
                      ></Product> )
                  }
             </div>
-            <div className="shoes-data-container">
-            <h2>Oder Summary</h2>
-            <h4>Select item: {cart.length}</h4>
+            <div className="card-container">
+                 <Card card={card}></Card>
             </div>
         </div>
     );
 };
 
-export default Shoes;
+export default Shop;
